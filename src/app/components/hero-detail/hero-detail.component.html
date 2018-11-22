@@ -1,0 +1,47 @@
+<!-- <div *ngIf="hero">
+
+    <h2>{{hero.name | uppercase}}</h2>
+    <div><span>id: </span>{{hero.id}} </div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/> 
+      </label>
+    </div>
+  
+  </div> -->
+
+  
+  <h4>{{hero?.name | uppercase}}</h4>
+
+
+
+      
+ <div *ngIf="hero">
+    <app-drag-drop></app-drag-drop>
+        <table >
+            
+            <tr>
+              <th>Id</th>
+              <th>FileName</th>
+              <th>LastUpdate</th>
+              <th>Permission</th>
+            </tr>
+            <tbody *ngIf="hero.file.length > 0">
+            <tr *ngFor="let hero of hero.file">
+              <td>{{hero.id}}</td>
+              <td>{{hero.name}}</td>
+              <td>{{hero.lastupdate}}</td>
+              <td *ngIf="hero.permission then delete; else readOnly">{{hero.permission}}</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+
+          <ng-template #delete><button type="button" class="btn btn-danger">Delete</button></ng-template>
+          <ng-template #readOnly>ReadOnly </ng-template>
+  
+          <h3 *ngIf="hero.file.length === 0">No Files found</h3>
+
+
+
+

@@ -1,0 +1,63 @@
+<div class="contatiner-fluid">
+  <div class="row">
+    <div class="col-xl-2 col-md-offset-5 center">
+
+      <!-- Model trigger button -->
+      <button class="btn btn-info ml-5 mt-2" data-toggle="modal" data-target="#exampleModal">
+        <i class="material-icons">add</i> Add new Folder
+      </button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Type your folder name here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (submit)="addFolder(folder.value)">
+                <div>
+                  <!-- <label for="folder">Add folder</label> -->
+                  <input type="text" #folder class="w-100" >
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <h5 class=" mb-2 mt-5  ml-5">My Folders</h5>
+        <ul class="heroes">
+          <!-- <li *ngFor="let hero of heroes"
+            [class.selected]="hero === selectedHero"
+            (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+          </li> -->
+          <button type="button" class="btn btn-outline-primary btn-lg btn-block" *ngFor="let hero of heroes"
+          [class.selected]="hero === selectedHero"
+          (click)="onSelect(hero)"><i class="material-icons">folder</i>  {{hero.name}}</button>
+        </ul>
+
+    </div>
+    <div class="col-xl-10">
+      <div class="container-fluid">
+        <div class="row ">
+            <app-hero-detail class="w-100" [hero]="selectedHero"></app-hero-detail>
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
